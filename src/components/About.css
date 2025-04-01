@@ -1,0 +1,111 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full screen height */
+  padding: 30px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ffffff, #f7f7f7);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fade-in 1.5s ease-in-out;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff416c;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: bounce-in 1.2s ease forwards;
+}
+
+.about-content {
+  max-width: 800px;
+  text-align: center;
+  color: #555;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  animation: slide-up 1.5s ease-in-out;
+}
+
+.about-text {
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.about-text strong {
+  color: #ff416c;
+  font-weight: bold;
+}
+
+.about-container:hover {
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.4s ease-in-out, transform 0.3s ease;
+  transform: scale(1.02);
+}
+
+.about-text:hover {
+  transform: translateX(10px);
+}
+
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2.2rem;
+  }
+  .about-text {
+    font-size: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.about-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff416c;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  -webkit-background-clip: text; /* For Webkit browsers (Chrome, Safari) */
+  -moz-background-clip: text;   /* For Firefox */
+  background-clip: text;        /* Standard property */
+  -webkit-text-fill-color: transparent;
+  animation: bounce-in 1.2s ease forwards;
+}

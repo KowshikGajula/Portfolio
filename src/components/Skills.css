@@ -1,0 +1,202 @@
+/* Main styling */
+.skills {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(45deg, #ff005c, #c5006d, #7200c8, #000);
+  background-size: 400% 400%;
+  animation: gradientBackground 6s ease infinite;
+  color: white;
+  overflow: hidden; /* Hide overflow */
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+.skills-title {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ff5733, 0 0 30px #ff5733;
+  animation: glowText 1.5s ease-in-out infinite alternate;
+}
+
+/* Navigation buttons for scrolling */
+.skills-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.scroll-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.2);
+}
+
+.skills-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  overflow-x: hidden; /* Hide overflow for smooth scrolling */
+  padding: 10px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.skill-card {
+  width: 240px; /* Set a width to fit exactly 3 cards */
+  text-align: center;
+  animation: scaleUp 1s ease-out forwards;
+  transition: transform 0.3s ease-out;
+}
+
+/* Add the following styles for better scroll behavior */
+.skills-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.skills-container::-webkit-scrollbar-thumb {
+  background: #ff5733;
+  border-radius: 10px;
+}
+
+.skills-container::-webkit-scrollbar-thumb:hover {
+  background: #ff005c;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  background: conic-gradient(
+    #ff5733 calc(var(--percentage) * 1%),
+    #1e1e1e calc(var(--percentage) * 1%)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: circleAnimation 2s ease-out forwards;
+  box-shadow: 0 5px 20px rgba(255, 87, 51, 0.5);
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  background: #000;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.percentage {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  z-index: 2;
+  animation: fadeInText 2s ease-in-out forwards;
+}
+
+.skill-name {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffcccb;
+  text-shadow: 0 0 10px #ffcccb;
+  animation: glowText 1.5s ease-in-out infinite alternate;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.skill-card:hover .circle {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 0 30px rgba(255, 87, 51, 1);
+}
+
+.skill-card:hover .skill-name {
+  color: #ff5733;
+  text-shadow: 0 0 20px #ff5733;
+}
+
+/* Keyframe Animations */
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes circleAnimation {
+  from {
+    background: conic-gradient(#ff5733 0%, #1e1e1e 0%);
+  }
+  to {
+    background: conic-gradient(
+      #ff5733 calc(var(--percentage) * 1%),
+      #1e1e1e calc(var(--percentage) * 1%)
+    );
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes glowText {
+  0% {
+    text-shadow: 0 0 5px #ff5733, 0 0 15px #ff5733;
+  }
+  100% {
+    text-shadow: 0 0 20px #ff5733, 0 0 30px #ff5733;
+  }
+}
+.skills-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  overflow: hidden; /* Hide overflowing circles */
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.circle-container {
+  display: flex;
+  width: 100%;
+  overflow: hidden; /* Hide extra percentage circles */
+}
+
+.circle-wrapper {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  width: fit-content;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+}

@@ -1,0 +1,171 @@
+.contact-section {
+    background-color: #121212;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    margin: 50px auto; /* Centers the section on the page */
+    animation: fadeIn 1.5s ease-in-out;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+  }
+  
+  .contact-section:hover {
+    transform: scale(1.05);
+  }
+  
+  .contact-title {
+    color: #fff;
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: slideInDown 1.2s ease;
+  }
+  
+  .contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .input-group input,
+  .input-group textarea {
+    width: 100%;
+    padding: 18px 14px;
+    font-size: 18px;
+    color: #333; /* Dark text color for white boxes */
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus,
+  .input-group textarea:focus {
+    border-color: #1e90ff;
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.8);
+  }
+  
+  .input-group label {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #555;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .input-group input:not(:placeholder-shown) + label,
+  .input-group textarea:not(:placeholder-shown) + label,
+  .input-group input:focus + label,
+  .input-group textarea:focus + label {
+    top: -14px;
+    left: 14px;
+    font-size: 14px;
+    color: #1e90ff;
+  }
+  
+  textarea {
+    resize: none;
+    height: 150px;
+  }
+  
+  .btn.pulse-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .btn.pulse-btn:hover {
+    background-color: #1c7ed6;
+    transform: translateY(-3px);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-50px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  .contact-title {
+    color: #fff;
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: discoGlow 1.5s infinite alternate;
+  }
+  
+  @keyframes discoGlow {
+    0% { color: #ff0000; text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000; }
+    20% { color: #ff8c00; text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 20px #ff8c00; }
+    40% { color: #ffff00; text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 20px #ffff00; }
+    60% { color: #32cd32; text-shadow: 0 0 5px #32cd32, 0 0 10px #32cd32, 0 0 20px #32cd32; }
+    80% { color: #1e90ff; text-shadow: 0 0 5px #1e90ff, 0 0 10px #1e90ff, 0 0 20px #1e90ff; }
+    100% { color: #9400d3; text-shadow: 0 0 5px #9400d3, 0 0 10px #9400d3, 0 0 20px #9400d3; }
+  }
+  .status-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .status-message {
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: fit-content;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+  }
+  
