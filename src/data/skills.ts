@@ -1,14 +1,14 @@
 /**
- * TECHNICAL EXPERTISE — grouped exactly as requested.
+ * TECHNICAL EXPERTISE — five categories, exactly as briefed.
  * No proficiency percentages are used anywhere: each skill is presented as a
- * capability you have worked with, not a fabricated score.
+ * capability used in real development work, not a fabricated score.
  */
 
 export interface SkillCategory {
   id: string;
   title: string;
   blurb: string;
-  icon: "code" | "layers" | "file" | "network" | "database" | "wrench";
+  icon: "code" | "layers" | "network" | "database" | "wrench";
   skills: string[];
 }
 
@@ -16,16 +16,15 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "core-abap",
     title: "Core ABAP",
-    blurb: "The foundation — data modelling, reporting and modularised program design.",
+    blurb: "The foundation — reporting, data modelling and object-oriented design.",
     icon: "code",
     skills: [
-      "Classical Reports",
-      "Interactive Reports",
+      "Reports",
+      "ALV",
       "Internal Tables",
       "Open SQL",
       "Data Dictionary",
-      "Modularization",
-      "ALV",
+      "OO ABAP",
     ],
   },
   {
@@ -33,58 +32,37 @@ export const skillCategories: SkillCategory[] = [
     title: "Enhancements",
     blurb: "Extending standard SAP without touching core code — the right way.",
     icon: "layers",
-    skills: [
-      "BAdIs",
-      "User Exits",
-      "Enhancement Framework",
-      "BAPIs",
-      "BADIs",
-      "RFC",
-    ],
-  },
-  {
-    id: "forms",
-    title: "SAP Forms",
-    blurb: "Document output that matches the business document it represents.",
-    icon: "file",
-    skills: ["Smart Forms", "SAPscript", "Adobe Forms", "Print Programs"],
+    skills: ["BAdIs", "User Exits", "BAPIs", "Enhancement Framework"],
   },
   {
     id: "integration",
-    title: "SAP Integration",
+    title: "Integration",
     blurb: "Moving data in and out of SAP reliably, with logging and recovery.",
     icon: "network",
-    skills: ["IDocs", "Proxies", "RFC", "OData", "REST APIs", "XML"],
+    skills: ["RFC", "IDocs", "Proxies", "OData", "REST APIs", "XML"],
   },
   {
-    id: "technologies",
-    title: "SAP Technologies",
+    id: "platforms",
+    title: "SAP Platforms",
     blurb: "Working across ECC today and the S/4HANA road ahead.",
     icon: "database",
-    skills: [
-      "SAP ECC",
-      "SAP S/4HANA",
-      "ABAP on HANA",
-      "CDS Views",
-    ],
+    skills: ["ECC", "S/4HANA", "ABAP on HANA", "CDS Views"],
   },
   {
     id: "tools",
-    title: "Development Tools",
+    title: "Tools",
     blurb: "The workbench, the debugger and the analysis tools behind every fix.",
     icon: "wrench",
     skills: [
       "SE11",
-      "SE38",
       "SE37",
+      "SE38",
       "SE80",
-      "SE24",
       "SE18",
       "SE19",
       "ST22",
       "SAT",
-      "ADT",
-      "Eclipse",
+      "Eclipse ADT",
     ],
   },
 ];

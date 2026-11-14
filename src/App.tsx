@@ -3,11 +3,10 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
-import { Expertise } from "@/components/sections/Expertise";
-import { Projects } from "@/components/sections/Projects";
-import { Architecture } from "@/components/sections/Architecture";
 import { Journey } from "@/components/sections/Journey";
-import { Certifications } from "@/components/sections/Certifications";
+import { Projects } from "@/components/sections/Projects";
+import { Expertise } from "@/components/sections/Expertise";
+import { Education } from "@/components/sections/Education";
 import { Contact } from "@/components/sections/Contact";
 
 export default function App() {
@@ -19,11 +18,10 @@ export default function App() {
         <main id="main">
           <Hero />
           <About />
-          <Expertise />
-          <Projects />
-          <Architecture />
           <Journey />
-          <Certifications />
+          <Projects />
+          <Expertise />
+          <Education />
           <Contact />
         </main>
 

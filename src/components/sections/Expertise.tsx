@@ -2,7 +2,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   Code2,
   Database,
-  FileText,
   Layers,
   Network,
   Wrench,
@@ -17,7 +16,6 @@ import { cn } from "@/lib/cn";
 const ICONS: Record<SkillCategory["icon"], LucideIcon> = {
   code: Code2,
   layers: Layers,
-  file: FileText,
   network: Network,
   database: Database,
   wrench: Wrench,
@@ -111,14 +109,14 @@ export function Expertise() {
 
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <SectionHeading
-          label="02 — Technical Expertise"
+          label="04 — Technical Expertise"
           title={
             <>
               The toolkit behind{" "}
               <span className="text-gradient">enterprise SAP delivery</span>.
             </>
           }
-          description="Organised by the work it does rather than by a score. Every item here has been used in a real development or support context."
+          description="Five categories, organised by the work they do rather than by a score. Every item here has been used in a real development or support context."
         />
 
         <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -133,7 +131,7 @@ export function Expertise() {
         <div className="mb-5 flex items-center gap-4 px-5 sm:px-8">
           <span className="h-px flex-1 bg-line" />
           <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-faint">
-            Also working with
+            The full stack, end to end
           </span>
           <span className="h-px flex-1 bg-line" />
         </div>

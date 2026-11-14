@@ -1,8 +1,15 @@
 /**
- * PROFESSIONAL JOURNEY — TIMELINE
+ * PROFESSIONAL EXPERIENCE — TIMELINE
  * ============================================================================
- *  employer / period / role are EDITABLE PLACEHOLDERS.
- *  Replace them with your real history; do not publish the placeholders.
+ *  ONLY ONE ENTRY IS REAL: the current SAP ABAP Consultant role.
+ *
+ *  employer, period and location are EDITABLE PLACEHOLDERS. Replace them with
+ *  your real values before publishing — nothing here should be invented.
+ *
+ *  Do NOT add employment duration or achievement metrics you cannot back up.
+ *  Add earlier roles below by copying an entry and setting `current` off the
+ *  previous one.
+ *
  *  `current: true` renders the "now" marker on the newest entry.
  * ============================================================================
  */
@@ -21,48 +28,46 @@ export interface JourneyEntry {
 export const journey: JourneyEntry[] = [
   {
     id: "entry-1",
-    period: "« 2023 — Present »", // « EDIT
+    period: "« Start — Present »", // « EDIT — your employment period
     role: "SAP ABAP Consultant",
     employer: "« Your Company »", // « EDIT — company name is intentionally a placeholder
     location: "India",
     current: true,
     summary:
-      "Delivering custom ABAP developments, enhancements and integrations across SAP ECC and S/4HANA, working closely with functional teams and supporting production systems.",
+      "Currently working as an SAP ABAP Consultant — delivering custom development, integrations and automation on enterprise SAP landscapes, and supporting them once they are live.",
     highlights: [
-      "Built file-based integration programs feeding SAP PM work orders from an external maintenance system.",
-      "Developed and maintained Smart Forms output for production labels and quality documentation.",
-      "Applied enhancement-framework techniques to extend standard processes without modifying core code.",
-      "Handled production support — debugging, root-cause analysis and corrective development.",
-      "Worked with transports, code reviews and object activation through the standard change process.",
+      "Built the SAP User Onboarding Automation process: SU01 provisioning, role assignment, approval routing and Service Desk integration.",
+      "Delivered the Sphere / GMAO to SAP PM integration — AL11 file processing, BAPI_ALM_ORDER_MAINTAIN order creation and response-file generation.",
+      "Developed and maintained custom ABAP developments across reporting, ALV and object-oriented code.",
+      "Applied enhancement-framework techniques — BAdIs, user exits and BAPIs — to extend standard processes without modifying core code.",
+      "Handled production support: debugging, root-cause analysis and corrective development, with transports released through the standard change process.",
     ],
   },
+];
+
+/**
+ * Capability areas shown alongside the timeline. These describe the work, not
+ * a duration — no experience length is claimed anywhere on the site.
+ */
+export const focusAreas: { title: string; detail: string }[] = [
   {
-    id: "entry-2",
-    period: "« 2021 — 2023 »", // « EDIT
-    role: "« ABAP Developer »", // « EDIT
-    employer: "« Your Previous Company »", // « EDIT
-    location: "India",
-    summary:
-      "Grew from core ABAP development into integration and output design, taking ownership of assigned objects end to end.",
-    highlights: [
-      "Authored classical and ALV reports against ECC data models.",
-      "Implemented BAPI and RFC based interfaces with structured error handling.",
-      "Designed print programs and form layouts for business documents.",
-      "Used the debugger, ST22 and SAT to trace and resolve runtime issues.",
-    ],
+    title: "Enterprise Development",
+    detail:
+      "Custom ABAP — reports, ALV output, internal tables, Open SQL and object-oriented design against ECC and S/4HANA data models.",
   },
   {
-    id: "entry-3",
-    period: "« 2020 — 2021 »", // « EDIT
-    role: "« ABAP Trainee / Junior Developer »", // « EDIT
-    employer: "« Your First Company »", // « EDIT
-    location: "India",
-    summary:
-      "Learning the SAP platform — the workbench, the data dictionary and how an ABAP change travels from development to production.",
-    highlights: [
-      "Learned SE11 / SE38 / SE37 / SE80 and the standard development workflow.",
-      "Wrote and corrected simple reports under supervision.",
-      "Built understanding of transports, requests and client concepts.",
-    ],
+    title: "SAP Integrations",
+    detail:
+      "RFC, BAPIs, IDocs, OData and file-based interfaces that connect SAP to the systems around it, with logging on both sides.",
+  },
+  {
+    title: "Process Automation",
+    detail:
+      "Replacing manual, repetitive steps with scheduled ABAP programs — from user provisioning to maintenance-order creation.",
+  },
+  {
+    title: "Production Support",
+    detail:
+      "Debugging, runtime analysis and root-cause correction on live systems, leaving behind code the next developer can maintain.",
   },
 ];

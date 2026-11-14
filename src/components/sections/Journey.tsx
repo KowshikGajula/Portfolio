@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { journey, type JourneyEntry } from "@/data/journey";
+import { journey, focusAreas, type JourneyEntry } from "@/data/journey";
 import { cn } from "@/lib/cn";
 
 function TimelineEntry({ entry, index }: { entry: JourneyEntry; index: number }) {
@@ -92,20 +92,20 @@ function TimelineEntry({ entry, index }: { entry: JourneyEntry; index: number })
 export function Journey() {
   return (
     <section
-      id="journey"
-      aria-labelledby="journey-heading"
+      id="experience"
+      aria-labelledby="experience-heading"
       className="relative scroll-mt-24 border-t border-line py-24 sm:py-32"
     >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <SectionHeading
-          label="05 — Professional Journey"
+          label="02 — Professional Experience"
           title={
             <>
-              The road from core ABAP to{" "}
-              <span className="text-gradient">integration work</span>.
+              Consulting on SAP ABAP,{" "}
+              <span className="text-gradient">end to end</span>.
             </>
           }
-          description="Responsibilities, the technical learning behind them, and the projects that shaped how I work today."
+          description="Currently working as an SAP ABAP Consultant — enterprise development, integrations, automation and production support across the SAP landscape."
         />
 
         <ol className="relative">
@@ -113,6 +113,35 @@ export function Journey() {
             <TimelineEntry key={entry.id} entry={entry} index={index} />
           ))}
         </ol>
+
+        {/* Focus areas — what the work covers, not how long it took. */}
+        <div className="mt-14">
+          <div className="mb-6 flex items-center gap-4">
+            <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-accent2">
+              What the work covers
+            </span>
+            <span className="h-px flex-1 bg-line" />
+          </div>
+
+          <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {focusAreas.map((area, i) => (
+              <Reveal as="li" key={area.title} delay={i * 0.06} className="h-full">
+                <article className="card-hover group h-full rounded-xl border border-line bg-surface p-5">
+                  <span
+                    aria-hidden="true"
+                    className="mb-4 block h-px w-8 bg-accent-gradient transition-all duration-400 group-hover:w-14"
+                  />
+                  <h3 className="font-display text-[0.98rem] font-semibold tracking-tight text-ink">
+                    {area.title}
+                  </h3>
+                  <p className="mt-2 text-[0.85rem] leading-relaxed text-muted">
+                    {area.detail}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

@@ -65,12 +65,13 @@ export function About() {
             <Reveal>
               <div className="space-y-5 text-[1rem] leading-[1.75] text-muted">
                 <p>
-                  I work on the technical side of SAP — the layer between a
-                  functional requirement and something that actually runs in
-                  production. Day to day that means designing and writing custom
-                  ABAP, extending standard processes through the enhancement
-                  framework, building interfaces, and producing the forms and
-                  reports the business depends on.
+                  I work as an SAP ABAP Consultant on the technical side of
+                  enterprise SAP — the layer between a functional requirement
+                  and something that actually runs in production. Day to day
+                  that means designing and writing custom ABAP, extending
+                  standard processes through the enhancement framework, and
+                  building the integrations that connect SAP to the systems
+                  around it.
                 </p>
                 <p>
                   Most of the value I add sits in the unglamorous parts: reading
@@ -81,10 +82,10 @@ export function About() {
                   root cause with the debugger than ship a workaround.
                 </p>
                 <p>
-                  My recent work has been concentrated in plant maintenance and
-                  production — automated order creation from external systems,
-                  label and certificate output, and the investigation work that
-                  comes with complex structures like multi-level BOMs.
+                  My recent work has been concentrated in two enterprise
+                  programmes — automating user provisioning across SAP systems,
+                  and turning external maintenance requests into SAP PM orders
+                  without anyone re-keying them.
                 </p>
               </div>
             </Reveal>

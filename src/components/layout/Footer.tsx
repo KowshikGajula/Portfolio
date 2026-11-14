@@ -43,8 +43,9 @@ export function Footer() {
             </div>
 
             <p className="mt-5 text-[0.9rem] leading-relaxed text-muted">
-              Building intelligent solutions within the SAP Ecosystem — ECC and
-              S/4HANA development, enhancements, integrations and automation.
+              Engineering enterprise solutions with SAP ABAP — scalable
+              automation, intelligent integrations and custom development
+              across ECC and S/4HANA.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2.5">
@@ -116,8 +117,8 @@ export function Footer() {
             © {year} {profile.name}. All rights reserved.
           </p>
           <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-faint">
-            {profile.location} · Available for{" "}
-            <span className="text-accent2">SAP consulting</span>
+            {profile.location} · Currently an{" "}
+            <span className="text-accent2">SAP ABAP Consultant</span>
           </p>
         </div>
       </div>

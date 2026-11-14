@@ -24,13 +24,13 @@ async def main():
         # --- structural ---
         checks["title"] = await page.title()
         checks["h1"] = (await page.locator("h1").first.inner_text()).replace("\n", " ")
-        for sec in ["home", "about", "expertise", "work", "architecture", "journey", "contact"]:
+        for sec in ["home", "about", "experience", "work", "expertise", "education", "contact"]:
             checks[f"section#{sec}"] = await page.locator(f"#{sec}").count() == 1
         checks["nav_links"] = await page.locator("header nav a[href^='#']").count()
         checks["skill_cards"] = await page.locator("#expertise article").count()
         checks["project_cards"] = await page.locator("#work article").count()
-        checks["arch_stages"] = await page.locator("#architecture [role='tab']").count()
-        checks["timeline_entries"] = await page.locator("#journey article").count()
+        checks["timeline_entries"] = await page.locator("#experience ol > li").count()
+        checks["education_cards"] = await page.locator("#education article").count()
         checks["form_fields"] = await page.locator("#contact input, #contact textarea").count()
 
         # --- WebGL / Vanta canvas ---
@@ -45,8 +45,8 @@ async def main():
         checks["resume_bytes"] = len(await resp.body())
 
         # --- interactions ---
-        # project filter
-        await page.locator("#work button", has_text="Smart Forms").first.click()
+        # project filter — "SU01" only appears on the Archroma project
+        await page.locator("#work button", has_text="SU01").first.click()
         await page.wait_for_timeout(700)
         checks["filtered_projects"] = await page.locator("#work article").count()
         await page.locator("#work button", has_text="All").first.click()
@@ -57,12 +57,8 @@ async def main():
         await page.locator("#work button[aria-expanded]").first.click()
         await page.wait_for_timeout(800)
         checks["case_study_open"] = await page.locator("#work button[aria-expanded='true']").count()
+        # 4 case-study blocks + 2 delivery (completed / in progress) blocks
         checks["case_study_blocks"] = await page.locator("#work h4").count()
-
-        # architecture tab
-        await page.locator("#architecture [role='tab']").nth(3).click()
-        await page.wait_for_timeout(700)
-        checks["arch_panel_text"] = (await page.locator("#stage-detail h3").inner_text())
 
         # theme toggle
         before = await page.evaluate("document.documentElement.classList.contains('dark')")

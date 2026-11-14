@@ -144,13 +144,13 @@ export function Hero() {
           {/* Main heading */}
           <h1 className="font-display text-[clamp(2.15rem,4.6vw,3.4rem)] font-semibold leading-[1.06] tracking-tightest text-ink">
             <SplitText
-              text="Building Intelligent Solutions"
+              text={profile.headline.line1}
               delay={0.15}
               stagger={0.05}
             />
             <br />
             <SplitText
-              text="Within the SAP Ecosystem."
+              text={profile.headline.line2}
               delay={0.42}
               whole
               innerClassName="text-gradient"
@@ -181,8 +181,11 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <Button href="#work" icon={<ArrowRight size={16} strokeWidth={1.9} />}>
-              Explore My Work
+            <Button
+              href="#work"
+              icon={<ArrowRight size={16} strokeWidth={1.9} />}
+            >
+              Explore Projects
             </Button>
             <Button
               href={contact.resume}

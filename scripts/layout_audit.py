@@ -24,7 +24,7 @@ AUDIT = """() => {
   };
 
   // Sections all present with sane heights
-  for (const id of ['home','about','expertise','work','architecture','journey','contact']) {
+  for (const id of ['home','about','experience','work','expertise','education','contact']) {
     const el = document.getElementById(id);
     if (!el) { res.sections[id] = 'MISSING'; continue; }
     const r = el.getBoundingClientRect();

@@ -60,24 +60,29 @@ npm run lint       # tsc --noEmit
 
 | File | What it controls |
 | --- | --- |
-| `profile.ts` | Name, title, location, summary, contact links, availability, hero terminal |
-| `skills.ts` | The six technical expertise categories |
-| `projects.ts` | The five projects, case studies and architecture chains |
-| `journey.ts` | The professional timeline |
-| `certifications.ts` | Certification cards |
-| `architecture.ts` | The interactive integration flow |
+| `profile.ts` | Name, title, hero headline, summary, contact links, availability, hero terminal |
+| `skills.ts` | The five technical expertise categories |
+| `projects.ts` | The two enterprise projects: case studies, architecture chains, completed vs ongoing |
+| `journey.ts` | The professional experience timeline + focus areas |
+| `education.ts` | Education card and academic timeline bounds |
 
 ### Placeholders you must replace
 
 Anything wrapped in `« … »` in `src/data/` is a placeholder:
 
-- `contact.email`, `contact.linkedin`
 - `contact.formEndpoint` (optional — see below)
-- Every `employer`, `period` and `role` in `journey.ts`
-- `credentialId` / `verifyUrl` in `certifications.ts`
+- Every `employer` and `period` in `journey.ts`
 
-Company names, employment dates, clients and personal contact details were
-deliberately **not** invented.
+Company names, employment dates, durations, clients, outcome metrics and
+personal contact details were deliberately **not** invented. Email and LinkedIn
+are the real published values.
+
+### What is deliberately absent
+
+NPTEL entries, certifications, college projects, Smart Forms / SAPscript /
+Zebra printing work, basic practice programs and debugging tasks as standalone
+projects. The site showcases **only the two enterprise projects** and reads as
+a professional consultant's site — not a fresher's.
 
 ### Contact form
 
@@ -140,9 +145,9 @@ python scripts/layout_audit.py https://portfolio-three-nu-11.vercel.app/
 Both expect Chrome to be installed (`channel="chrome"`).
 
 **Verified:** zero page/console errors, WebGL backdrop initialising, project
-filtering, case-study expansion, architecture tabs, theme toggle, form
-validation, mobile menu — and `hOverflow = 0` across 1920 / 1440 / 1024 / 768 /
-390 / 360 px.
+filtering, case-study expansion (including the completed/in-progress split),
+theme toggle, form validation, mobile menu — and `hOverflow = 0` across
+1920 / 1440 / 1024 / 768 / 390 / 360 px.
 
 ---
 
@@ -153,8 +158,9 @@ validation, mobile menu — and `hOverflow = 0` across 1920 / 1440 / 1024 / 768 
 - Dark / light theme toggle (persists; defaults to dark)
 - Animated skill indicators — **no fabricated proficiency percentages**
 - Project filtering by SAP technology
-- Expandable case studies: Challenge → Approach → Implementation → Outcome
-- Interactive integration architecture walkthrough
+- Expandable case studies: Challenge → Approach → Implementation → Outcome,
+  plus an explicit **completed vs in-progress** delivery breakdown
+- Education timeline card with academic progress rail
 - Validated contact form with success/error states
 - Downloadable PDF résumé
 - SEO metadata, Open Graph, JSON-LD `Person` schema, `robots.txt`
@@ -171,8 +177,8 @@ src/
   components/
     background/    VantaNet, GridBackdrop
     layout/        Navbar, Footer, SmoothScroll, ThemeToggle
-    sections/      Hero, About, Expertise, Projects, Architecture,
-                   Journey, Certifications, Contact
+    sections/      Hero, About, Journey, Projects, Expertise,
+                   Education, Contact
     ui/            Button, SplitText, Spotlight, Terminal, Marquee, …
   data/            ← edit all content here
   hooks/           useTheme, useActiveSection

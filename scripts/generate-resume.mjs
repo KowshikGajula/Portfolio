@@ -5,7 +5,8 @@
  * Run with:  npm run resume
  *
  * EDIT THE `resume` OBJECT BELOW to change the content, then re-run.
- * Every field here is a placeholder by design; fill in your own details.
+ * Contact details are your real, published values. Anything wrapped in
+ * « … » is a placeholder — fill it in before sharing the PDF.
  */
 
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -23,84 +24,73 @@ const resume = {
   title: "SAP ABAP Consultant",
   location: "India",
   contact: [
-    "your.email@example.com",
-    "linkedin.com/in/your-linkedin-handle",
+    "kowshikgajula1@gmail.com",
+    "linkedin.com/in/kowshik-gajula-a25955253",
     "github.com/KowshikGajula",
     "portfolio-three-nu-11.vercel.app",
   ],
 
   summary:
-    "SAP ABAP Consultant specialising in SAP ECC and SAP S/4HANA technical development. " +
-    "Custom enhancements, integrations, automation, reporting and enterprise application " +
-    "development. Comfortable owning a requirement end to end — from reading the functional " +
-    "specification, through design and implementation, to transport and production support.",
+    "SAP ABAP Consultant building enterprise SAP solutions — custom ABAP development, " +
+    "process automation, intelligent integrations and production support across ECC and " +
+    "S/4HANA. Comfortable owning a requirement end to end, from reading the functional " +
+    "specification through design and implementation to transport release and support.",
 
   expertise: [
     ["Core ABAP",
-      "Classical & interactive reports, internal tables, Open SQL, data dictionary, modularization, ALV"],
+      "Reports, ALV, internal tables, Open SQL, data dictionary, OO ABAP"],
     ["Enhancements",
-      "BAdIs, user exits, enhancement framework, BAPIs, RFC"],
-    ["SAP Forms",
-      "Smart Forms, SAPscript, Adobe Forms, print programs"],
-    ["SAP Integration",
-      "IDocs, proxies, RFC, OData, REST APIs, XML"],
-    ["SAP Technologies",
+      "BAdIs, user exits, BAPIs, enhancement framework"],
+    ["Integration",
+      "RFC, IDocs, proxies, OData, REST APIs, XML"],
+    ["SAP Platforms",
       "SAP ECC, SAP S/4HANA, ABAP on HANA, CDS views"],
-    ["Development Tools",
-      "SE11, SE38, SE37, SE80, SE24, SE18, SE19, ST22, SAT, ADT, Eclipse"],
+    ["Tools",
+      "SE11, SE37, SE38, SE80, SE18, SE19, ST22, SAT, Eclipse ADT"],
   ],
 
-  // EDIT: replace the periods and employers with your own history.
+  // EDIT: replace the period and employer with your own history before sharing.
   experience: [
     {
-      period: "2023 — Present",
+      period: "« Start — Present »",
       role: "SAP ABAP Consultant",
-      employer: "Your Company",
+      employer: "« Your Company »",
       location: "India",
       points: [
-        "Built a file-based integration that creates SAP PM work orders from an external GMAO/Sphere system, with response-file feedback of the SAP order number.",
-        "Developed Smart Forms output for production order labels and quality certificates, including Zebra ZPL printer integration.",
+        "Delivering custom ABAP developments, enhancements and integrations across SAP ECC and S/4HANA landscapes.",
+        "Built the SAP User Onboarding Automation process: SU01 provisioning, role assignment, approval routing and Service Desk integration, with CUA and standalone system routing.",
+        "Delivered the Sphere / GMAO to SAP PM integration — AL11 file processing, BAPI_ALM_ORDER_MAINTAIN order creation and response-file generation.",
         "Applied enhancement-framework techniques to extend standard processes without modifying core code.",
-        "Handled production support: debugging, root-cause analysis and corrective development.",
-      ],
-    },
-    {
-      period: "2021 — 2023",
-      role: "ABAP Developer",
-      employer: "Your Previous Company",
-      location: "India",
-      points: [
-        "Authored classical and ALV reports against ECC data models.",
-        "Implemented BAPI and RFC based interfaces with structured error handling.",
-        "Designed print programs and form layouts for business documents.",
+        "Handled production support: debugging, root-cause analysis and corrective development through the standard change process.",
       ],
     },
   ],
 
+  // EDIT: only real, factual project entries — completed vs ongoing stated plainly.
   projects: [
     {
-      name: "Sphere / GMAO to SAP PM Integration",
+      name: "SAP User Onboarding Automation - Archroma  (ongoing)",
       detail:
-        "AL11 file processing, equipment and functional location mapping, BAPI_ALM_ORDER_MAINTAIN " +
-        "with transaction control, structured logging and a response file carrying the SAP order number.",
+        "SU01 user provisioning with user creation and role assignment, approval workflow and " +
+        "Service Desk integration, CUA and standalone system routing, plus validation, logging " +
+        "and status tracking against the originating request.",
     },
     {
-      name: "SAP Production Order Label Printing",
+      name: "Sphere / GMAO - SAP PM Integration  (ongoing)",
       detail:
-        "Custom Smart Forms and driver programs producing material, batch, quantity and shelf-life " +
-        "labels through Zebra ZPL output.",
-    },
-    {
-      name: "SAP Quality Certificate of Analysis (COA)",
-      detail:
-        "Dynamic Smart Forms certificate rendering inspection characteristics with their short texts, " +
-        "merged with material and plant master data.",
+        "AL11 file processing and ABAP automation, equipment and functional location mapping, " +
+        "BAPI_ALM_ORDER_MAINTAIN order creation with error handling, and response-file " +
+        "generation carrying the SAP order number or the failure reason.",
     },
   ],
 
-  certifications: [
-    "Joule Certified Developer — SAP",
-    "ABAP Backend Developer — SAP",
+  education: [
+    {
+      degree: "B.Tech - Computer Science and Engineering (CSE)",
+      institution: "KL University",
+      period: "2022 - 2026",
+      status: "Graduated",
+    },
   ],
 };
 
@@ -383,7 +373,7 @@ for (const job of resume.experience) {
 }
 
 // ---- Projects ----
-doc.sectionTitle("Selected Projects");
+doc.sectionTitle("Enterprise Projects");
 for (const project of resume.projects) {
   doc.ensure(40);
   doc.line(project.name, { size: 10, font: "F2", color: INK, dy: 3 });
@@ -391,9 +381,35 @@ for (const project of resume.projects) {
   doc.y -= 3;
 }
 
-// ---- Certifications ----
-doc.sectionTitle("Certifications");
-for (const cert of resume.certifications) doc.bullet(cert);
+// ---- Education ----
+doc.sectionTitle("Education");
+for (const edu of resume.education) {
+  doc.ensure(40);
+  doc.line(edu.degree, { size: 10, font: "F2", color: INK, dy: 3 });
+
+  doc.setFill(MUTED);
+  doc.ops.push(
+    `BT /F1 9 Tf 1 0 0 1 ${MARGIN_X} ${doc.y.toFixed(2)} Tm (${esc(
+      edu.institution,
+    )}) Tj ET`,
+  );
+  const periodW = edu.period.length * 8.2 * CH_W;
+  doc.setFill(FAINT);
+  doc.ops.push(
+    `BT /F1 8.5 Tf 1 0 0 1 ${(PAGE_W - MARGIN_X - periodW).toFixed(2)} ${doc.y.toFixed(
+      2,
+    )} Tm (${esc(edu.period)}) Tj ET`,
+  );
+  doc.y -= 13;
+
+  doc.setFill(FAINT);
+  doc.ops.push(
+    `BT /F1 8 Tf 1 0 0 1 ${MARGIN_X} ${doc.y.toFixed(2)} Tm (${esc(
+      edu.status,
+    )}) Tj ET`,
+  );
+  doc.y -= 12;
+}
 
 const pages = doc.finish();
 const pdf = buildPdf(pages);

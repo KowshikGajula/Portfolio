@@ -120,7 +120,7 @@ HTML = """<!doctype html>
       </div>
     </div>
 
-    <h1>Building Intelligent Solutions<br><span class="grad">Within the SAP Ecosystem.</span></h1>
+    <h1>Engineering Enterprise Solutions<br><span class="grad">with SAP ABAP.</span></h1>
 
     <div class="bottom">
       <div class="tags">

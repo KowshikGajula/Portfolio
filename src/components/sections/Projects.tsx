@@ -4,8 +4,10 @@ import {
   ArrowUpRight,
   CheckCircle2,
   ChevronDown,
+  CircleDot,
   Filter,
   GitBranch,
+  Loader,
   Target,
   Wrench,
 } from "lucide-react";
@@ -86,6 +88,85 @@ function ArchitectureChain({ steps }: { steps: Project["architecture"] }) {
   );
 }
 
+function StatusPill({ project }: { project: Project }) {
+  const ongoing = project.status === "ongoing";
+
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.14em]",
+        ongoing
+          ? "border-amber-400/35 bg-amber-400/10 text-amber-600 dark:text-amber-400"
+          : "border-emerald-400/35 bg-emerald-400/10 text-emerald-600 dark:text-emerald-400",
+      )}
+    >
+      <span
+        aria-hidden="true"
+        className={cn(
+          "h-1.5 w-1.5 rounded-full",
+          ongoing
+            ? "animate-pulse-dot bg-amber-500 dark:bg-amber-400"
+            : "bg-emerald-500 dark:bg-emerald-400",
+        )}
+      />
+      {ongoing ? "Ongoing" : "Completed"}
+    </span>
+  );
+}
+
+function DeliveryList({ project }: { project: Project }) {
+  const groups = [
+    { key: "completed" as const, label: "Completed", items: project.delivery.completed },
+    { key: "ongoing" as const, label: "In progress", items: project.delivery.ongoing },
+  ];
+
+  return (
+    <div className="grid gap-5 sm:grid-cols-2">
+      {groups.map((group) => (
+        <div
+          key={group.key}
+          className="rounded-xl border border-line bg-surface p-5"
+        >
+          <div className="mb-3 flex items-center gap-2.5">
+            <span
+              className={cn(
+                "grid h-7 w-7 place-items-center rounded-md",
+                group.key === "completed"
+                  ? "bg-emerald-400/12 text-emerald-600 dark:text-emerald-400"
+                  : "bg-amber-400/12 text-amber-600 dark:text-amber-400",
+              )}
+            >
+              {group.key === "completed" ? (
+                <CheckCircle2 size={13} strokeWidth={1.9} />
+              ) : (
+                <Loader size={13} strokeWidth={1.9} />
+              )}
+            </span>
+            <h4 className="font-mono text-[0.63rem] uppercase tracking-[0.18em] text-accent2">
+              {group.label}
+            </h4>
+          </div>
+          <ul className="space-y-2">
+            {group.items.map((item) => (
+              <li
+                key={item}
+                className="flex gap-2.5 text-[0.845rem] leading-relaxed text-muted"
+              >
+                <CircleDot
+                  size={12}
+                  strokeWidth={1.8}
+                  className="mt-1 shrink-0 text-faint"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function ProjectCard({
   project,
   open,
@@ -111,17 +192,20 @@ function ProjectCard({
         />
 
         <div className="flex flex-1 flex-col p-6 sm:p-7">
-          {/* Index + external link affordance */}
+          {/* Index + status + expand affordance */}
           <div className="mb-5 flex items-start justify-between gap-4">
             <span className="font-mono text-[0.66rem] tracking-[0.2em] text-faint">
               PROJECT {project.index}
             </span>
-            <span
-              aria-hidden="true"
-              className="grid h-9 w-9 place-items-center rounded-full border border-line text-faint transition-all duration-400 group-hover:border-accent2/50 group-hover:text-accent2"
-            >
-              <ArrowUpRight size={15} strokeWidth={1.8} />
-            </span>
+            <div className="flex items-center gap-2.5">
+              <StatusPill project={project} />
+              <span
+                aria-hidden="true"
+                className="grid h-9 w-9 place-items-center rounded-full border border-line text-faint transition-all duration-400 group-hover:border-accent2/50 group-hover:text-accent2"
+              >
+                <ArrowUpRight size={15} strokeWidth={1.8} />
+              </span>
+            </div>
           </div>
 
           <h3 className="font-display text-[1.24rem] font-semibold leading-tight tracking-tight text-ink sm:text-[1.35rem]">
@@ -133,6 +217,17 @@ function ProjectCard({
 
           <p className="mt-4 text-[0.9rem] leading-relaxed text-muted">
             {project.summary}
+          </p>
+
+          <p className="mt-4 flex items-center gap-2 font-mono text-[0.63rem] uppercase tracking-[0.14em] text-faint">
+            <span
+              aria-hidden="true"
+              className={cn(
+                "h-1.5 w-1.5 rounded-full",
+                project.status === "ongoing" ? "bg-amber-400" : "bg-emerald-400",
+              )}
+            />
+            {project.statusLabel}
           </p>
 
           <ul className="mt-5 flex flex-wrap gap-2">
@@ -200,6 +295,8 @@ function ProjectCard({
                   ))}
                 </div>
 
+                <DeliveryList project={project} />
+
                 <ArchitectureChain steps={project.architecture} />
 
                 <div className="flex flex-wrap items-center gap-2">
@@ -246,14 +343,14 @@ export function Projects() {
     >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <SectionHeading
-          label="03 — Featured Work"
+          label="03 — Featured Projects"
           title={
             <>
-              Selected <span className="text-gradient">SAP projects</span>, told
-              as case studies.
+              Two enterprise programmes,{" "}
+              <span className="text-gradient">told as case studies</span>.
             </>
           }
-          description="Each one opens up into the problem, the technical approach, how it was implemented and what it changed. No invented metrics — just the work."
+          description="Business challenge, architecture, technical implementation, technologies and outcomes — with completed and in-progress functionality called out separately. No invented metrics, just the work."
         />
 
         {/* Filter */}
