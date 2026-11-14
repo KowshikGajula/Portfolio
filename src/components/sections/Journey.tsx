@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { Briefcase, MapPin } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { journey, focusAreas, type JourneyEntry } from "@/data/journey";
@@ -54,6 +54,12 @@ function TimelineEntry({ entry, index }: { entry: JourneyEntry; index: number })
               <MapPin size={11} strokeWidth={1.9} />
               {entry.location}
             </span>
+            {entry.client && (
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-accent2/35 bg-accent-gradient-soft px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-accent2">
+                <Briefcase size={11} strokeWidth={1.9} />
+                Client · {entry.client}
+              </span>
+            )}
             {entry.current && (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/35 bg-emerald-400/10 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-emerald-500 dark:text-emerald-400">
                 <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-emerald-500 dark:bg-emerald-400" />

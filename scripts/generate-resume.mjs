@@ -49,12 +49,12 @@ const resume = {
       "SE11, SE37, SE38, SE80, SE18, SE19, ST22, SAT, Eclipse ADT"],
   ],
 
-  // EDIT: replace the period and employer with your own history before sharing.
+  // EDIT: replace the periods and employers with your own history before sharing.
   experience: [
     {
       period: "May 2026 - Present",
       role: "SAP ABAP Consultant",
-      employer: "« Your Company »",
+      employer: "Careator Technologies  |  Client: Brillio",
       location: "India",
       points: [
         "Delivering custom ABAP developments, enhancements and integrations across SAP ECC and S/4HANA landscapes.",

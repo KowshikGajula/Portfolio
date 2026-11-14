@@ -105,6 +105,11 @@ export function About() {
                       {entry.role}
                     </p>
                     <p className="mt-1 text-sm text-muted">{entry.employer}</p>
+                    {entry.client && (
+                      <p className="mt-1 font-mono text-[0.66rem] uppercase tracking-[0.14em] text-accent2">
+                        Client · {entry.client}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <p className="font-display text-[1.02rem] font-semibold tracking-tight text-ink">

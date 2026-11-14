@@ -71,11 +71,12 @@ npm run lint       # tsc --noEmit
 Anything wrapped in `« … »` in `src/data/` is a placeholder:
 
 - `contact.formEndpoint` (optional — see below)
-- Every `employer` and `period` in `journey.ts`
 
-Company names, employment dates, durations, clients, outcome metrics and
-personal contact details were deliberately **not** invented. Email and LinkedIn
-are the real published values.
+Real values already filled in: email, LinkedIn, employment period
+(**May 2026 — Present**), employer (**Careator Technologies**) and on-site
+client (**Brillio**). Company names, durations, clients, outcome metrics and
+any contact detail beyond what you supplied were deliberately **not**
+invented — add more history only if you can back it up.
 
 ### What is deliberately absent
 
