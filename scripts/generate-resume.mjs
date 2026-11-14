@@ -52,7 +52,7 @@ const resume = {
   // EDIT: replace the period and employer with your own history before sharing.
   experience: [
     {
-      period: "« Start — Present »",
+      period: "May 2026 - Present",
       role: "SAP ABAP Consultant",
       employer: "« Your Company »",
       location: "India",

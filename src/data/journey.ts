@@ -3,8 +3,9 @@
  * ============================================================================
  *  ONLY ONE ENTRY IS REAL: the current SAP ABAP Consultant role.
  *
- *  employer, period and location are EDITABLE PLACEHOLDERS. Replace them with
- *  your real values before publishing — nothing here should be invented.
+ *  `period` is your real employment period. `employer` and `location` are
+ *  EDITABLE PLACEHOLDERS — replace the employer with your real company before
+ *  publishing; nothing here should be invented.
  *
  *  Do NOT add employment duration or achievement metrics you cannot back up.
  *  Add earlier roles below by copying an entry and setting `current` off the
@@ -28,7 +29,7 @@ export interface JourneyEntry {
 export const journey: JourneyEntry[] = [
   {
     id: "entry-1",
-    period: "« Start — Present »", // « EDIT — your employment period
+    period: "May 2026 — Present", // « EDIT — your employment period
     role: "SAP ABAP Consultant",
     employer: "« Your Company »", // « EDIT — company name is intentionally a placeholder
     location: "India",
