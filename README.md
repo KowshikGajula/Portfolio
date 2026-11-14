@@ -97,6 +97,20 @@ success/error feedback.
 dependency-free PDF writer. Edit the `resume` object at the top of that file and
 run `npm run resume`.
 
+### Open Graph image
+
+`public/og.png` (1200×630) is rendered from a standalone HTML card by
+`scripts/generate_og.py`, so its typography and gradient match the site exactly.
+Regenerate it with:
+
+```bash
+python scripts/generate_og.py
+```
+
+It needs Chrome (`channel="chrome"`) and Playwright. If you change the brand
+colours or headline, re-run it so link previews stay in sync. `public/sitemap.xml`
+is hand-maintained — update it if the domain changes.
+
 ---
 
 ## Design system
@@ -117,6 +131,10 @@ Tailwind tokens, so the light/dark theme flips with a single class on `<html>`.
 npx vite preview --port 4173     # then, in another shell:
 python scripts/smoke_test.py     # runtime + interaction smoke test
 python scripts/layout_audit.py   # responsive layout audit
+
+# Both accept a URL, so the same checks can run against production:
+python scripts/smoke_test.py https://portfolio-three-nu-11.vercel.app/
+python scripts/layout_audit.py https://portfolio-three-nu-11.vercel.app/
 ```
 
 Both expect Chrome to be installed (`channel="chrome"`).

@@ -1,7 +1,8 @@
-import asyncio, json
+import asyncio, json, sys
 from playwright.async_api import async_playwright
 
-URL = "http://localhost:4173/"
+# Usage: python scripts/layout_audit.py [url]
+URL = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:4173/"
 
 VIEWPORTS = [
     (1920, 1080, "wide"),

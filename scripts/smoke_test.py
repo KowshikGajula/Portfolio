@@ -1,7 +1,8 @@
 import asyncio, sys, json
 from playwright.async_api import async_playwright
 
-URL = "http://localhost:4173/"
+# Usage: python scripts/smoke_test.py [url]
+URL = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:4173/"
 
 CONSOLE_ERRORS = []
 PAGE_ERRORS = []
