@@ -1,0 +1,30 @@
+# Normalise line endings: LF in the repository, whatever the platform expects
+# in the working copy. Without this, Windows checkouts silently rewrite sources.
+* text=auto eol=lf
+
+# Never let git rewrite these — a single converted byte corrupts them.
+*.pdf -text
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.webp -text
+*.ico -text
+*.woff -text
+*.woff2 -text
+*.ttf -text
+*.eot -text
+
+# Explicit, so diffs stay readable across platforms.
+*.js    text eol=lf
+*.jsx   text eol=lf
+*.ts    text eol=lf
+*.tsx   text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.py    text eol=lf
+*.mjs   text eol=lf
